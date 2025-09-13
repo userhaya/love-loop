@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ar">
+<head>
+  <meta charset="utf-8" />
+  <title>Love Loop</title>
+  <style>
+    body { font-family: "Segoe UI", Tahoma, Arial; direction: rtl; padding: 20px; }
+    #out { max-height: 70vh; overflow:auto; border: 1px solid #ddd; padding:10px; background:#fff; }
+    .line { margin: 4px 0; }
+  </style>
+</head>
+<body>
+  <h3>تشغيل لانهائي بسيط — أغلق الصفحة للتوقيف</h3>
+  <div id="out"></div>
+
+  <script>
+    const out = document.getElementById('out');
+    const MAX_LINES = 300;
+    const intervalMs = 1000;
+
+    setInterval(() => {
+      const d = document.createElement('div');
+      d.className = 'line';
+      d.textContent = ' أحبك سعّودي';
+      out.appendChild(d);
+      if (out.children.length > MAX_LINES) out.removeChild(out.firstChild);
+      out.scrollTop = out.scrollHeight;
+      console.log('أحبك سعّودي');
+    }, intervalMs);
+  </script>
+</body>
+</html>
